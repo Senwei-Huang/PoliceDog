@@ -6,9 +6,11 @@ This repository contains supplementary materials, data, and code for the paper "
 **Paper**: 
 
 **dependencies**:
-Webots (2023b)
-MATLAB (R2021b)
-Eigen (3.4.0)
+```
+Webots (recommend 2023b)
+MATLAB (recommend R2021b)
+Eigen (recommend 3.4.0)
+```
 
 ### Citation
 ```
