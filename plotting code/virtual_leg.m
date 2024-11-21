@@ -2,14 +2,14 @@
 %虚拟腿与x轴的摆动角度/速度/加速度
 %且保存了相关数据
 clear,clc;close all;
-addpath(genpath('./utilities'));
-save_dir = "./SaveFigure/virtual_leg/"; % 保存路径
+addpath('../utilities');
+save_dir = "../SaveFigure/virtual_leg/"; % 保存路径
 detaT = 1/120;
 %% 数据导入：腿和髋部顺序是左前（2：4）右前（5：7）左后（8：10）右后（11：13）
 %% 5 low height jump 2
 % motion_type = "(5 low height jump 2)";
 % actionNum = 5;
-% raw_data = readmatrix('./5 low height jump 2/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
 % T.start = 2.375;
@@ -23,10 +23,13 @@ detaT = 1/120;
 % T.LH = [-2 2.408 2.483 -3 -1 -1];
 % %右后腿
 % T.RH = [-2 2.4 2.467 -3];
+% OBS='1';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1];
 % figuretitle = 'Low Hurdle';
 %% 6 mid height jump 1
 % motion_type = "(6 mid height jump 1)";
-% raw_data = readmatrix('./6 mid height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/2 medium hurdle/raw_data.csv');
 % actionNum = 6;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/25; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -41,10 +44,13 @@ detaT = 1/120;
 % T.LH = [-1 -2 2.692 2.8 2.883 -3];
 % %右后腿
 % T.RH = [-2 2.758 2.858 -3];
+% OBS='1';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1];
 % figuretitle = 'Medium Hurdle';
 %% 7 high height jump 1
 % motion_type = "(7 high height jump 1)";
-% raw_data = readmatrix('./7 high height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/3 high hurdle/raw_data.csv');
 % actionNum = 7;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -59,43 +65,52 @@ detaT = 1/120;
 % T.LH = [-2 2.633 2.725 -3 -1 -1];
 % % 右后腿
 % T.RH = [-2 2.625 2.717 -3];
+% OBS='1';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1.6];
 % figuretitle = 'High Hurdle';
 %% 8 ring jump 1 警犬穿越圆洞 高0.115m
-motion_type = "(ring jump 1)";
-raw_data = readmatrix('./8 ring jump 1\raw_data.csv');
-actionNum = 8;
-n_data = 62;
-angle = -0.1915;
-T.start = 2.6;
-T.end = 3.05;
-T.body = [-2 2.767 -3 -1];
-%左前腿
-T.LF = [-1 -2 2.65 -3 -1];
-%右前腿
-T.RF = [-1 -2 2.683 -3];
-%左后腿
-T.LH = [-2 2.683 2.767 -3 -1 -1];
-%右后腿
-T.RH = [-2 2.667 2.758 -3];
-figuretitle = 'Circular Hole (Takeoff)';
-%% 9 ring jump 2
-% motion_type = "(ring jump 2)";
-% raw_data = readmatrix('./9 ring jump 2\raw_data.csv');
-% actionNum = 9;
-% n_data = 51;
+% motion_type = "(ring jump 1)";
+% raw_data = readmatrix('../Dog motion data/4 circular hole (takeoff)/raw_data.csv');
+% actionNum = 8;
+% n_data = 55;
 % angle = -0.1915;
-% T.start = 2.517;
-% T.end = 2.883;
-% T.body = [-1 -2 2.75 -3];
-% %左前腿
-% T.LF = [-2 2.75 2.842 -3 -1];
-% %右前腿
-% T.RF = [-2 2.758 2.858 -3];
-% %左后腿
-% T.LH = [-2 -3 -1 -1 -1 -1];
-% %右后腿
-% T.RH = [-2 2.825 -3 -1];
-% figuretitle = 'Circular Hole (Landing)';
+% T.start = 2.6;
+% T.end = 3.05;
+% T.body = [-2 2.767 -3 -1];
+% % 左前腿
+% T.LF = [-1 -2 2.65 -3 -1];
+% % 右前腿
+% T.RF = [-1 -2 2.683 -3];
+% % 左后腿
+% T.LH = [-2 2.683 2.767 -3 -1 -1];
+% % 右后腿
+% T.RH = [-2 2.667 2.758 -3];
+% OBS='circle';
+% xlimit = [-2.4 2.6];
+% zlimit = [-0.07 1.9];
+% figuretitle = 'Circular Hole (Takeoff)';
+%% 9 ring jump 2
+motion_type = "(ring jump 2)";
+raw_data = readmatrix('../Dog motion data/5 circular hole (landing)/raw_data.csv');
+actionNum = 9;
+n_data = 45;
+angle = -0.1915;
+T.start = 2.517;
+T.end = 2.883;
+T.body = [-1 -2 2.75 -3];
+%左前腿
+T.LF = [-2 2.75 2.842 -3 -1];
+%右前腿
+T.RF = [-2 2.758 2.858 -3];
+%左后腿
+T.LH = [-2 -3 -1 -1 -1 -1];
+%右后腿
+T.RH = [-2 2.825 -3 -1];
+OBS='circle';
+xlimit = [-2.4 2.6];
+zlimit = [0 1.9];
+figuretitle = 'Circular Hole (Landing)';
 %% 处理数据 时间间隔为1/120s
 %旋转
 [FOOT,t,HIP,~] = data_rotate(raw_data,n_data,angle);

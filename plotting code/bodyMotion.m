@@ -1,13 +1,13 @@
  
 clear; clc; close all;
 detaT = 1/120;
-addpath(genpath('./utilities'));
-save_dir = "./SaveFigure/body motion/"; % 保存路径
+addpath('../utilities');
+save_dir = "../SaveFigure/"; % 保存路径
 nframe = 5;
 %% 5 low height jump 2
 motion_type = "(5 low height jump 2)";
 actionNum = 5;
-raw_data = readmatrix('./5 low height jump 2/raw_data.csv');
+raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
 n_data = 45; %数据完整的行数，再往后取数据不全
 angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
 T.start = 2.375;
@@ -26,7 +26,7 @@ xlimit = [-2.4 2.6];
 zlimit = [0 1];
 %% 6 mid height jump 1
 % motion_type = "(6 mid height jump 1)";
-% raw_data = readmatrix('./6 mid height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/2 medium hurdle/raw_data.csv');
 % actionNum = 6;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/25; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -46,7 +46,7 @@ zlimit = [0 1];
 % zlimit = [0 1];
 %% 7 high height jump 1
 % motion_type = "(7 high height jump 1)";
-% raw_data = readmatrix('./7 high height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/3 high hurdle/raw_data.csv');
 % actionNum = 7;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -66,7 +66,7 @@ zlimit = [0 1];
 % zlimit = [0 1.6];
 %% 8 ring jump 1 警犬穿越圆洞 高0.115m
 % motion_type = "(ring jump 1)";
-% raw_data = readmatrix('./8 ring jump 1\raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/4 circular hole (takeoff)/raw_data.csv');
 % actionNum = 8;
 % n_data = 55;
 % angle = -0.1915;
@@ -86,7 +86,7 @@ zlimit = [0 1];
 % zlimit = [-0.07 1.9];
 %% 9 ring jump 2
 % motion_type = "(ring jump 2)";
-% raw_data = readmatrix('./9 ring jump 2\raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/5 circular hole (landing)/raw_data.csv');
 % actionNum = 9;
 % n_data = 45;
 % angle = -0.1915;
@@ -109,7 +109,6 @@ data = data_rotate_ALL(raw_data,n_data,angle);
 t = data(1:n_data,1);
 obs = data(1,89:91);
 data = data+[zeros(n_data,1) repmat(-obs,n_data,(size(data,2)-1)/3)];
-data = 0.67*data;
 h = figure;
 % set(h,'pos',[350 250 850 380]); 
 % 处理颜色以及帧数
@@ -159,7 +158,7 @@ xlabel('X position [m]','Fontsize',20,'Fontname','Times New Roman')
 ylabel('Y position [m]','Fontsize',20,'Fontname','Times New Roman')
 zlabel('Z position [m]','Fontsize',20,'Fontname','Times New Roman')
 set(gca,'FontSize',20)
-% title('Body Motion','Fontsize',12,'Fontname','Times New Roman')
+% title('Body Motion','Fontsize',20,'Fontname','Times New Roman')
 % saveas(h, save_dir+'body motion '+motion_type+".svg")
 % saveas(h, save_dir+'body motion '+motion_type+".emf")
 %% tools

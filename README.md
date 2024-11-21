@@ -5,6 +5,8 @@ This repository contains supplementary materials, data, and code for the paper "
 
 **Paper**: 
 
+**dependencies**: Eigen, webots API
+
 ### Citation
 ```
 @article{

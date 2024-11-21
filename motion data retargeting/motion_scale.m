@@ -1,8 +1,7 @@
 
 clear; clc; close all;
 detaT = 1/120;
-addpath(genpath('../utilities'));
-save_dir = "./SaveFigure/body motion/"; % 保存路径
+addpath('../utilities');
 nframe = 5;
 
 %% 机器人参数
@@ -15,34 +14,34 @@ robot.I = eye(3);   %不能修改，作为矩阵中的常数
 robot.p0 = [0,0,0]';%不能修改，作为矩阵中的常数
 robot.P = [robot.l3,0,0,1]';
 %% 5 low height jump 2
-motion_type = "(5 low height jump 2)";
-actionNum = 5;
-raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
-n_data = 47; %数据完整的行数，再往后取数据不全
-angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
-T.start = 2.375;
-T.end = 2.758;
-T.body = [-2 2.483 -3 -1];
-%左前腿
-T.LF = [-1 -2 2.4 -3 -1];
-%右前腿
-T.RF = [-2 -3 -1 -1];
-%左后腿
-T.LH = [-2 2.408 2.483 -3 -1 -1];
-%右后腿
-T.RH = [-2 2.4 2.467 -3];
-OBS='1';
-xlimit = [-2.4 2.6];
-zlimit = [0 1];
-%JSON文件参数
-json.LoopMode = "lowjump";
-json.FrameDuration = 0.00833;
-json.EnableCycleOffsetPosition = true;
-json.EnableCycleOffsetRotation = true;
-json.MotionWeight = 1.0;
+% motion_type = "(5 low height jump 2)";
+% actionNum = 5;
+% raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
+% n_data = 47; %数据完整的行数，再往后取数据不全
+% angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
+% T.start = 2.375;
+% T.end = 2.758;
+% T.body = [-2 2.483 -3 -1];
+% %左前腿
+% T.LF = [-1 -2 2.4 -3 -1];
+% %右前腿
+% T.RF = [-2 -3 -1 -1];
+% %左后腿
+% T.LH = [-2 2.408 2.483 -3 -1 -1];
+% %右后腿
+% T.RH = [-2 2.4 2.467 -3];
+% OBS='1';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1];
+% %JSON文件参数
+% json.LoopMode = "lowjump";
+% json.FrameDuration = 0.00833;
+% json.EnableCycleOffsetPosition = true;
+% json.EnableCycleOffsetRotation = true;
+% json.MotionWeight = 1.0;
 %% 6 mid height jump 1
 % motion_type = "(6 mid height jump 1)";
-% raw_data = readmatrix('./6 mid height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/2 medium hurdle/raw_data.csv');
 % actionNum = 6;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/25; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -68,7 +67,7 @@ json.MotionWeight = 1.0;
 % json.MotionWeight = 1.0;
 %% 7 high height jump 1
 % motion_type = "(7 high height jump 1)";
-% raw_data = readmatrix('./7 high height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/3 high hurdle/raw_data.csv');
 % actionNum = 7;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -94,7 +93,7 @@ json.MotionWeight = 1.0;
 % json.MotionWeight = 1.0;
 %% 8 ring jump 1 警犬穿越圆洞 高0.115m
 % motion_type = "(ring jump 1)";
-% raw_data = readmatrix('./8 ring jump 1\raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/4 circular hole (takeoff)/raw_data.csv');
 % actionNum = 8;
 % n_data = 55;
 % angle = -0.1915;
@@ -119,31 +118,31 @@ json.MotionWeight = 1.0;
 % json.EnableCycleOffsetRotation = true;
 % json.MotionWeight = 1.0;
 %% 9 ring jump 2
-% motion_type = "(ring jump 2)";
-% raw_data = readmatrix('./9 ring jump 2\raw_data.csv');
-% actionNum = 9;
-% n_data = 45;
-% angle = -0.1915;
-% T.start = 2.517;
-% T.end = 2.883;
-% T.body = [-1 -2 2.75 -3];
-% %左前腿
-% T.LF = [-2 2.75 2.842 -3 -1];
-% %右前腿
-% T.RF = [-2 2.758 2.858 -3];
-% %左后腿
-% T.LH = [-2 -3 -1 -1 -1 -1];
-% %右后腿
-% T.RH = [-2 2.825 -3 -1];
-% OBS='circle';
-% xlimit = [-2.4 2.6];
-% zlimit = [0 1.9];
-% %JSON文件参数
-% json.LoopMode = "ringjump2";
-% json.FrameDuration = 0.00833;
-% json.EnableCycleOffsetPosition = true;
-% json.EnableCycleOffsetRotation = true;
-% json.MotionWeight = 1.0;
+motion_type = "(ring jump 2)";
+raw_data = readmatrix('../Dog motion data/5 circular hole (landing)/raw_data.csv');
+actionNum = 9;
+n_data = 45;
+angle = -0.1915;
+T.start = 2.517;
+T.end = 2.883;
+T.body = [-1 -2 2.75 -3];
+%左前腿
+T.LF = [-2 2.75 2.842 -3 -1];
+%右前腿
+T.RF = [-2 2.758 2.858 -3];
+%左后腿
+T.LH = [-2 -3 -1 -1 -1 -1];
+%右后腿
+T.RH = [-2 2.825 -3 -1];
+OBS='circle';
+xlimit = [-2.4 2.6];
+zlimit = [0 1.9];
+%JSON文件参数
+json.LoopMode = "ringjump2";
+json.FrameDuration = 0.00833;
+json.EnableCycleOffsetPosition = true;
+json.EnableCycleOffsetRotation = true;
+json.MotionWeight = 1.0;
 %% 数据分类
 data = data_rotate_ALL(raw_data,n_data,angle);
 t = data(1:n_data,1);
@@ -179,33 +178,8 @@ source.foot_LH = data(:,35:37);
 
 sourcedata = [source.spinemid, source.hip_RF, source.foot_RF, source.hip_LF, source.foot_LF, ...
               source.hip_RH, source.foot_RH, source.hip_LH, source.foot_LH ];
-% writematrix(sourcedata,'E:\GO2\GO2\controllers\dog_supervisor\'+json.LoopMode+'_pointdata.txt')
+% writematrix(sourcedata,'../Go2 simulation using Webots/controllers/dog_supervisor/'+json.LoopMode+'_pointdata.txt')
 
-%% 15个优化变量一起优化
-%通过优化的方式计算最优的机身欧拉角以及关节角度
-q = [];
-% i= 4;
-% options = optimoptions('ga','Display','none');
-% problem.options = options;
-% problem.solver = 'ga';
-% problem.fitnessfcn = @(q)fun(q,source,i);
-% problem.nvars = 15;
-% problem.x0 = zeros(15,1);
-% problem.lb = [0,0,0,-0.8378,-3.4907,-2.7227,-0.8378,-3.4907,-2.7227,-0.8378,-4.5379,-2.7227,-0.8378,-4.5379,-2.7227]';
-% problem.ub = [pi,pi,2*pi,0.8378,pi/2,0.8378,0.8378,pi/2,0.8378,0.8378,pi/6,0.8378,0.8378,pi/6,0.8378]';
-% [x,fval,exitflag] = ga(problem);
-
-% for i = 1:size(source.spinemid,1)
-%     options = optimoptions('fmincon','Display','iter','Algorithm','sqp');
-%     problem.options = options;
-%     problem.solver = 'fmincon';
-%     problem.objective = @(q)fun(q,source,i);
-%     problem.x0 = zeros(15,1);
-%     problem.lb = [0,0,0,-0.8378,-3.4907,-2.7227,-0.8378,-3.4907,-2.7227,-0.8378,-4.5379,-2.7227,-0.8378,-4.5379,-2.7227]';
-%     problem.ub = [pi,pi,2*pi,0.8378,pi/2,0.8378,0.8378,pi/2,0.8378,0.8378,pi/6,0.8378,0.8378,pi/6,0.8378]';
-%     x = fmincon(problem);
-%     q = [q x];
-% end
 %% 三个变量单独优化
 % 优化计算欧拉角
 rpy = [];
@@ -260,68 +234,9 @@ end
 bodyquaternion = angle2quat(rpy(6,:),rpy(5,:),rpy(4,:),'ZYX');
 axang = quat2axang(bodyquaternion);
 targetdata = [rpy(1:3,:)' axang qCOL'];
-writematrix(targetdata,'E:\GO2\GO2\controllers\dog_supervisor\'+json.LoopMode+'_targetpose.txt');
+writematrix(targetdata,'../Go2 simulation using Webots/controllers/dog_supervisor/'+json.LoopMode+'_targetpose.txt');
 
-
-% %计算质心线速度，角速度，关节角速度，足端速度
-% v_rpy = diff(rpy');
-% v_qCOL = diff(qCOL');
-% v_p_foot_pos = diff(p_foot_pos');
-% %把四元数的结果中的w放到最后面去
-% Q = bodyquaternion(:,1);
-% bodyquaternion(:,1:3) = bodyquaternion(:,2:4);
-% bodyquaternion(:,4) = Q;
-% motiondata = [rpy(1:3,2:end)' bodyquaternion(2:end,:) qCOL(:,2:end)' p_foot_pos(:,2:end)' v_rpy v_qCOL v_p_foot_pos];
-% writematrix(motiondata,'D:\研究生\运动数据采集\运动数据测量结果\Reports\motiondata\'+json.LoopMode+'.txt');
-% json.Frames = motiondata;
-% t = jsonencode(json);
-% file= fopen('D:\研究生\运动数据采集\运动数据测量结果\Reports\motiondata\'+json.LoopMode+'.json', 'w+');
-% fprintf(file, '%s',t);
-% fclose(file);
 %% 目标函数
-%定义q : rpy （1：3）, 右前腿关节角度（4：6），左前腿关节角度（7：9），右后腿关节角度（10：12），左后腿关节角度（13：15），共十五维列向量
-%i表示帧数，优化第几帧的结果
-function f = fun(q,source,i)
-        robot.L = 0.3868;
-        robot.W = 0.093;
-        robot.l1 = 0.0955;
-        robot.l2 = 0.213;
-        robot.l3 = 0.213;
-        robot.I = eye(3);
-        robot.p0 = [0 0 0]';
-        robot.P = [robot.l3,0,0,1]';
-        comPOS = source.spinemid;
-        
-        q_bar = [0,0,0,-0.1,0.8,-1.5,0.1,0.8,-1.5,-0.1,1,-1.5,0.1,1,-1.5]';
-        W = 0.00*eye(15);
-        %目标位置
-        % 右前腿
-        target.foot_RF = transrpy(q(4:6),0,robot,q(1:3),comPOS)*robot.P;
-        target.foot_RF = target.foot_RF(1:3);
-        target.hip_RF = rz(q(3))*ry(q(2))*rx(q(1))*[robot.L/2,-robot.W/2,0]'+ comPOS;
-        % 左前腿
-        target.foot_LF = transrpy(q(7:9),1,robot,q(1:3),comPOS)*robot.P;
-        target.foot_LF = target.foot_LF(1:3);
-        target.hip_LF = rz(q(3))*ry(q(2))*rx(q(1))*[robot.L/2,robot.W/2,0]' + comPOS;
-        % 右后腿
-        target.foot_RH = transrpy(q(10:12),2,robot,q(1:3),comPOS)*robot.P;
-        target.foot_RH = target.foot_RH(1:3);
-        target.hip_RH = rz(q(3))*ry(q(2))*rx(q(1))*[-robot.L/2,-robot.W/2,0]' + comPOS;
-        % 左后腿
-        target.foot_LH = transrpy(q(13:15),3,robot,q(1:3),comPOS)*robot.P;
-        target.foot_LH = target.foot_LH(1:3);
-        target.hip_LH = rz(q(3))*ry(q(2))*rx(q(1))*[-robot.L/2,robot.W/2,0]' + comPOS;
-        
-        sourcePOS = [source.hip_RF(i,:),source.foot_RF(i,:),source.hip_LF(i,:),source.foot_LF(i,:),...
-                     source.hip_RH(i,:),source.foot_RH(i,:),source.hip_LH(i,:),source.foot_LH(i,:)]';
-        targetPOS = [target.hip_RF;target.foot_RF;target.hip_LF;target.foot_LF;...
-                     target.hip_RH;target.foot_RH;target.hip_LH;target.foot_LH];
-%         disp(sourcePOS')
-%         disp(targetPOS')
-        f = (sourcePOS-targetPOS)'*(sourcePOS-targetPOS) + (q_bar-q')'* W *(q_bar-q');
-end
-
-
 %定义q : rpy （1：3）, 右前腿关节角度（4：6），左前腿关节角度（7：9），右后腿关节角度（10：12），左后腿关节角度（13：15），共十五维列向量
 %i表示帧数，优化第几帧的结果
 

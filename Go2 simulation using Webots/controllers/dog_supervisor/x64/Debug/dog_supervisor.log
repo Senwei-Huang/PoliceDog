@@ -1,8 +1,44 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(502,5): warning MSB8004: Intermediate 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Intermediate 目录。
 C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(503,5): warning MSB8004: Output 目录未以斜杠结尾。  此生成实例将添加斜杠，因为必须有这个斜杠才能正确计算 Output 目录。
-  正在生成代码
-  1 of 787 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  已完成代码的生成
-  dog_supervisor.vcxproj -> E:\GO2\GO2\controllers\dog_supervisor\dog_supervisor.exe
+  Accelerometer.cpp
+  Altimeter.cpp
+  Brake.cpp
+  Camera.cpp
+  Compass.cpp
+  Connector.cpp
+  Device.cpp
+  Display.cpp
+  DistanceSensor.cpp
+  Emitter.cpp
+  Field.cpp
+  GPS.cpp
+  Gyro.cpp
+  InertialUnit.cpp
+  Joystick.cpp
+  Keyboard.cpp
+  LED.cpp
+  Lidar.cpp
+  LightSensor.cpp
+  Motion.cpp
+  正在生成代码...
+  正在编译...
+  Motor.cpp
+  Mouse.cpp
+  Node.cpp
+  Pen.cpp
+  PositionSensor.cpp
+  Radar.cpp
+  RangeFinder.cpp
+  Receiver.cpp
+  Robot.cpp
+  Skin.cpp
+  Speaker.cpp
+  Supervisor.cpp
+  TouchSensor.cpp
+  VacuumGripper.cpp
+  dog_supervisor.cpp
+C:\ALL_APP_lib\Eigenlib\eigen-3.4.0\Eigen\src\Core\arch\Default\Half.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\ALL_APP_lib\Eigenlib\eigen-3.4.0\Eigen\src\Core\arch\Default\BFloat16.h(1,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+C:\ALL_APP_lib\Eigenlib\eigen-3.4.0\Eigen\src\Core\arch\Default\GenericPacketMathFunctions.h(676,1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+  dog_supervisor.vcxproj -> E:\pliceDogTest\PoliceDog\Go2 simulation using Webots\controllers\dog_supervisor\dog_supervisor.exe
