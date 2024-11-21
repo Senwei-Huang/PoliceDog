@@ -7,8 +7,8 @@ WorldInfo {
   gravity 0
 }
 Viewpoint {
-  orientation 0.0937430838525248 -0.1366446995656301 -0.9861746601441539 5.067550157771997
-  position -1.0653151151327935 -3.6944162058748273 0.7979755597843634
+  orientation 0.04388669050427659 -0.1052587333234568 -0.9934759974230496 5.488410570461318
+  position -2.435114816853543 -3.262380404231805 0.3755409330154651
 }
 TexturedBackground {
 }
@@ -19,10 +19,11 @@ Robot {
   supervisor TRUE
 }
 DEF GO2 Robot {
+  translation -0.53 0 0
   children [
     DEF base_visual CadShape {
       url [
-        "E:/GO2/GO2/dae/base.dae"
+        "../dae/base.dae"
       ]
     }
     Solid {
@@ -86,7 +87,7 @@ DEF GO2 Robot {
         children [
           DEF hip_visual CadShape {
             url [
-              "E:/GO2/GO2/dae/hip.dae"
+              "../dae/hip.dae"
             ]
           }
           HingeJoint {
@@ -112,7 +113,7 @@ DEF GO2 Robot {
               children [
                 DEF thigh_visual CadShape {
                   url [
-                    "E:/GO2/GO2/dae/thigh.dae"
+                    "../dae/thigh.dae"
                   ]
                 }
                 HingeJoint {
@@ -137,7 +138,7 @@ DEF GO2 Robot {
                     children [
                       DEF calf_visual CadShape {
                         url [
-                          "E:/GO2/GO2/dae/calf.dae"
+                          "../dae/calf.dae"
                         ]
                       }
                       Solid {
@@ -317,7 +318,7 @@ DEF GO2 Robot {
               children [
                 DEF thigh_mirror_visual CadShape {
                   url [
-                    "E:/GO2/GO2/dae/thigh_mirror.dae"
+                    "../dae/thigh_mirror.dae"
                   ]
                 }
                 HingeJoint {
@@ -342,7 +343,7 @@ DEF GO2 Robot {
                     children [
                       DEF calf_mirror_visual CadShape {
                         url [
-                          "E:/GO2/GO2/dae/calf_mirror.dae"
+                          "../dae/calf_mirror.dae"
                         ]
                       }
                       Solid {
