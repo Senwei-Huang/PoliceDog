@@ -5,7 +5,10 @@ This repository contains supplementary materials, data, and code for the paper "
 
 **Paper**: 
 
-**dependencies**: Eigen, webots API
+**dependencies**:
+Webots (2023b)
+MATLAB (R2021b)
+Eigen (3.4.0)
 
 ### Citation
 ```
