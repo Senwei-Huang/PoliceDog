@@ -1,28 +1,31 @@
 clear; clc; close all;
 detaT = 1/120;
-addpath(genpath('./utilities'));
-save_dir = "./SaveFigure/Angle/"; % 保存路径
+addpath('../utilities');
+save_dir = "../SaveFigure/"; % 保存路径
 %% 5 low height jump 2
-% motion_type = "(5 low height jump 2)";
-% actionNum = 5;
-% raw_data = readmatrix('./5 low height jump 2/raw_data.csv');
-% n_data = 57; %数据完整的行数，再往后取数据不全
-% angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
-% T.start = 2.375;
-% T.end = 2.758;
-% T.body = [-2 2.483 -3 -1];
-% %左前腿
-% T.LF = [-1 -2 2.4 -3 -1];
-% %右前腿
-% T.RF = [-2 -3 -1 -1];
-% %左后腿
-% T.LH = [-2 2.408 2.483 -3 -1 -1];
-% %右后腿
-% T.RH = [-2 2.4 2.467 -3];
-% figuretitle = 'Low Hurdle';
+motion_type = "(5 low height jump 2)";
+actionNum = 5;
+raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
+n_data = 57; %数据完整的行数，再往后取数据不全
+angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
+T.start = 2.375;
+T.end = 2.758;
+T.body = [-2 2.483 -3 -1];
+%左前腿
+T.LF = [-1 -2 2.4 -3 -1];
+%右前腿
+T.RF = [-2 -3 -1 -1];
+%左后腿
+T.LH = [-2 2.408 2.483 -3 -1 -1];
+%右后腿
+T.RH = [-2 2.4 2.467 -3];
+OBS='1';
+xlimit = [-2.4 2.6];
+zlimit = [0 1];
+figuretitle = 'Low Hurdle';
 %% 6 mid height jump 1
 % motion_type = "(6 mid height jump 1)";
-% raw_data = readmatrix('./6 mid height jump 1/raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/2 medium hurdle/raw_data.csv');
 % actionNum = 6;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/25; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -37,48 +40,57 @@ save_dir = "./SaveFigure/Angle/"; % 保存路径
 % T.LH = [-1 -2 2.692 2.8 2.883 -3];
 % %右后腿
 % T.RH = [-2 2.758 2.858 -3];
+% OBS='1';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1];
 % figuretitle = 'Medium Hurdle';
 %% 7 high height jump 1
-motion_type = "(7 high height jump 1)";
-raw_data = readmatrix('./7 high height jump 1/raw_data.csv');
-actionNum = 7;
-n_data = 57; %数据完整的行数，再往后取数据不全
-angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
-T.start = 2.583;
-T.end = 3.042;
-T.body = [-2 2.725 -3 -1];
-% 左前腿
-T.LF = [-1 -2 2.642 -3 -1];
-% 右前腿
-T.RF = [-1 -2 2.625 -3];
-% 左后腿
-T.LH = [-2 2.633 2.725 -3 -1 -1];
-% 右后腿
-T.RH = [-2 2.625 2.717 -3];
-figuretitle = 'High Hurdle';
+% motion_type = "(7 high height jump 1)";
+% raw_data = readmatrix('../Dog motion data/3 high hurdle/raw_data.csv');
+% actionNum = 7;
+% n_data = 57; %数据完整的行数，再往后取数据不全
+% angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
+% T.start = 2.583;
+% T.end = 3.042;
+% T.body = [-2 2.725 -3 -1];
+% % 左前腿
+% T.LF = [-1 -2 2.642 -3 -1];
+% % 右前腿
+% T.RF = [-1 -2 2.625 -3];
+% % 左后腿
+% T.LH = [-2 2.633 2.725 -3 -1 -1];
+% % 右后腿
+% T.RH = [-2 2.625 2.717 -3];
+% OBS='1';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1.6];
+% figuretitle = 'High Hurdle';
 %% 8 ring jump 1 警犬穿越圆洞 高0.115m
 % motion_type = "(ring jump 1)";
-% raw_data = readmatrix('./8 ring jump 1\raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/4 circular hole (takeoff)/raw_data.csv');
 % actionNum = 8;
-% n_data = 62;
+% n_data = 55;
 % angle = -0.1915;
 % T.start = 2.6;
 % T.end = 3.05;
 % T.body = [-2 2.767 -3 -1];
-% %左前腿
+% % 左前腿
 % T.LF = [-1 -2 2.65 -3 -1];
-% %右前腿
+% % 右前腿
 % T.RF = [-1 -2 2.683 -3];
-% %左后腿
+% % 左后腿
 % T.LH = [-2 2.683 2.767 -3 -1 -1];
-% %右后腿
+% % 右后腿
 % T.RH = [-2 2.667 2.758 -3];
+% OBS='circle';
+% xlimit = [-2.4 2.6];
+% zlimit = [-0.07 1.9];
 % figuretitle = 'Circular Hole (Takeoff)';
 %% 9 ring jump 2
 % motion_type = "(ring jump 2)";
-% raw_data = readmatrix('./9 ring jump 2\raw_data.csv');
+% raw_data = readmatrix('../Dog motion data/5 circular hole (landing)/raw_data.csv');
 % actionNum = 9;
-% n_data = 51;
+% n_data = 45;
 % angle = -0.1915;
 % T.start = 2.517;
 % T.end = 2.883;
@@ -91,6 +103,9 @@ figuretitle = 'High Hurdle';
 % T.LH = [-2 -3 -1 -1 -1 -1];
 % %右后腿
 % T.RH = [-2 2.825 -3 -1];
+% OBS='circle';
+% xlimit = [-2.4 2.6];
+% zlimit = [0 1.9];
 % figuretitle = 'Circular Hole (Landing)';
 %% 数据分类
 data = data_rotate_ALL(raw_data,n_data,angle);
@@ -238,8 +253,11 @@ h = figure('name','Spine Angle');
 % h = figure('name','Spine Angle','Position',[1 49 1700 950]);
 % h.Position(3:4) = [1000,500];
 PLOTBodyAngle(theta_spine,t,T,'Spine angle [rad]',figuretitle)
-saveas(h, save_dir+"Spine Angle "+motion_type+".svg")
-saveas(h, save_dir+"Spine Angle "+motion_type+".emf")
+% saveas(h, save_dir+"Spine Angle "+motion_type+".svg")
+% saveas(h, save_dir+"Spine Angle "+motion_type+".emf")
+
+
+
 % h = figure('name','Spine Angular Velocity');
 % PLOTBodyAngle(omega_spine,t,T,'Spine angular velocity [rad/s]','Spine Angular Velocity')
 % saveas(h, save_dir+"Spine Angular Velocity "+motion_type+".svg")
@@ -336,6 +354,9 @@ h = figure('name','LH Joint Angle');
 PLOTlegAngle(theta_LH,t,T,'Joint angle [rad]','LH Joint Angle','LH')
 % saveas(h, save_dir+"LH Joint Angle "+motion_type+".svg")
 % saveas(h, save_dir+"LH Joint Angle "+motion_type+".emf")
+
+
+
 % h = figure('name','LH Joint Angular Velocity');
 % PLOTlegAngle(omega_LH,t,T,'Joint angular velocity [rad/s]','LH Joint Angular Velocity','LH')
 % saveas(h, save_dir+"LH Joint Angular Velocity "+motion_type+".svg")
