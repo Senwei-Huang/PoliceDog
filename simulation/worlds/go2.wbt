@@ -170,7 +170,7 @@ DEF GO2 Robot {
                         children [
                           DEF foot_visual CadShape {
                             url [
-                              "E:/GO2/GO2/dae/foot.dae"
+                              "../dae/foot.dae"
                             ]
                           }
                         ]
@@ -860,6 +860,9 @@ DEF GO2 Robot {
       translation -0.02557 0 0.04232
       name "imu"
       physics Physics {
+            density -1
+            mass 0.001
+            centerOfMass [0 0 0]
       }
     }
     Solid {
@@ -867,6 +870,9 @@ DEF GO2 Robot {
       rotation 0 1 0 2.8782
       name "radar"
       physics Physics {
+            density -1
+            mass 0.001
+            centerOfMass [0 0 0]
       }
     }
   ]

@@ -3,13 +3,16 @@
 %且保存了相关数据
 clear,clc;close all;
 addpath('../utilities');
-save_dir = "../SaveFigure/virtual_leg/"; % 保存路径
+save_dir = "./SaveFigure/virtual_leg/"; % 保存路径
+if ~exist(save_dir, 'dir')
+    mkdir(save_dir);
+end
 detaT = 1/120;
 %% 数据导入：腿和髋部顺序是左前（2：4）右前（5：7）左后（8：10）右后（11：13）
 %% 5 low height jump 2
 % motion_type = "(5 low height jump 2)";
 % actionNum = 5;
-% raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/1 low hurdle/raw_data.csv');
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
 % T.start = 2.375;
@@ -29,7 +32,7 @@ detaT = 1/120;
 % figuretitle = 'Low Hurdle';
 %% 6 mid height jump 1
 % motion_type = "(6 mid height jump 1)";
-% raw_data = readmatrix('../Dog motion data/2 medium hurdle/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/2 medium hurdle/raw_data.csv');
 % actionNum = 6;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/25; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -50,7 +53,7 @@ detaT = 1/120;
 % figuretitle = 'Medium Hurdle';
 %% 7 high height jump 1
 % motion_type = "(7 high height jump 1)";
-% raw_data = readmatrix('../Dog motion data/3 high hurdle/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/3 high hurdle/raw_data.csv');
 % actionNum = 7;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -71,7 +74,7 @@ detaT = 1/120;
 % figuretitle = 'High Hurdle';
 %% 8 ring jump 1 警犬穿越圆洞 高0.115m
 % motion_type = "(ring jump 1)";
-% raw_data = readmatrix('../Dog motion data/4 circular hole (takeoff)/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/4 circular hole (takeoff)/raw_data.csv');
 % actionNum = 8;
 % n_data = 55;
 % angle = -0.1915;
@@ -92,7 +95,7 @@ detaT = 1/120;
 % figuretitle = 'Circular Hole (Takeoff)';
 %% 9 ring jump 2
 motion_type = "(ring jump 2)";
-raw_data = readmatrix('../Dog motion data/5 circular hole (landing)/raw_data.csv');
+raw_data = readmatrix('../../raw_data/5 circular hole (landing)/raw_data.csv');
 actionNum = 9;
 n_data = 45;
 angle = -0.1915;

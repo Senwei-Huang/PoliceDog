@@ -1,4 +1,3 @@
-
 clear; clc; close all;
 detaT = 1/120;
 addpath('../utilities');
@@ -16,7 +15,7 @@ robot.P = [robot.l3,0,0,1]';
 %% 5 low height jump 2
 % motion_type = "(5 low height jump 2)";
 % actionNum = 5;
-% raw_data = readmatrix('../Dog motion data/1 low hurdle/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/1 low hurdle/raw_data.csv');
 % n_data = 47; %数据完整的行数，再往后取数据不全
 % angle = 31*pi/60; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
 % T.start = 2.375;
@@ -41,7 +40,7 @@ robot.P = [robot.l3,0,0,1]';
 % json.MotionWeight = 1.0;
 %% 6 mid height jump 1
 % motion_type = "(6 mid height jump 1)";
-% raw_data = readmatrix('../Dog motion data/2 medium hurdle/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/2 medium hurdle/raw_data.csv');
 % actionNum = 6;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/25; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -67,7 +66,7 @@ robot.P = [robot.l3,0,0,1]';
 % json.MotionWeight = 1.0;
 %% 7 high height jump 1
 % motion_type = "(7 high height jump 1)";
-% raw_data = readmatrix('../Dog motion data/3 high hurdle/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/3 high hurdle/raw_data.csv');
 % actionNum = 7;
 % n_data = 57; %数据完整的行数，再往后取数据不全
 % angle = -pi/16; %将X轴转为奔跑的正方向要转动的角度，根据画出来的结果试出来的
@@ -93,7 +92,7 @@ robot.P = [robot.l3,0,0,1]';
 % json.MotionWeight = 1.0;
 %% 8 ring jump 1 警犬穿越圆洞 高0.115m
 % motion_type = "(ring jump 1)";
-% raw_data = readmatrix('../Dog motion data/4 circular hole (takeoff)/raw_data.csv');
+% raw_data = readmatrix('../../raw_data/4 circular hole (takeoff)/raw_data.csv');
 % actionNum = 8;
 % n_data = 55;
 % angle = -0.1915;
@@ -119,7 +118,7 @@ robot.P = [robot.l3,0,0,1]';
 % json.MotionWeight = 1.0;
 %% 9 ring jump 2
 motion_type = "(ring jump 2)";
-raw_data = readmatrix('../Dog motion data/5 circular hole (landing)/raw_data.csv');
+raw_data = readmatrix('../../raw_data/5 circular hole (landing)/raw_data.csv');
 actionNum = 9;
 n_data = 45;
 angle = -0.1915;
@@ -178,7 +177,7 @@ source.foot_LH = data(:,35:37);
 
 sourcedata = [source.spinemid, source.hip_RF, source.foot_RF, source.hip_LF, source.foot_LF, ...
               source.hip_RH, source.foot_RH, source.hip_LH, source.foot_LH ];
-% writematrix(sourcedata,'../Go2 simulation using Webots/controllers/dog_supervisor/'+json.LoopMode+'_pointdata.txt')
+% % writematrix(sourcedata,'../../simulation/controllers/dog_supervisor/'+json.LoopMode+'_pointdata.txt')
 
 %% 三个变量单独优化
 % 优化计算欧拉角
@@ -234,7 +233,7 @@ end
 bodyquaternion = angle2quat(rpy(6,:),rpy(5,:),rpy(4,:),'ZYX');
 axang = quat2axang(bodyquaternion);
 targetdata = [rpy(1:3,:)' axang qCOL'];
-writematrix(targetdata,'../Go2 simulation using Webots/controllers/dog_supervisor/'+json.LoopMode+'_targetpose.txt');
+writematrix(targetdata,'../../simulation/controllers/dog_supervisor/'+json.LoopMode+'_targetpose.txt');
 
 %% 目标函数
 %定义q : rpy （1：3）, 右前腿关节角度（4：6），左前腿关节角度（7：9），右后腿关节角度（10：12），左后腿关节角度（13：15），共十五维列向量
