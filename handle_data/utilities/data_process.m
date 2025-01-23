@@ -7,9 +7,9 @@
 %         FOOT_bB-----足端在质心坐标系下的位置
 %         FOOT_bH-----足端在髋关节坐标系下的位置
 %         t---时间
-%         pitch_deg---运动过程中躯干的pitch角
+%         body_pitch---运动过程中躯干的pitch角
 %         CoM，CoM_dot---质心（中间脊柱）的位置和速度
-function [FOOT_wB,FOOT_wH,FOOT_bB,FOOT_bH,t,pitch,CoM,CoM_dot] = data_process(raw_data,n,angle)
+function [FOOT_wB,FOOT_wH,FOOT_bB,FOOT_bH,t,body_pitch,CoM,CoM_dot] = data_process(raw_data,n,angle)
         t = raw_data(1:n,1);
         %足端
         left_hand = raw_data(1:n,23:25)';
@@ -51,12 +51,12 @@ function [FOOT_wB,FOOT_wH,FOOT_bB,FOOT_bH,t,pitch,CoM,CoM_dot] = data_process(ra
         %求运动过程中的pitch角
         vector_spine = midspinefront - midspineback;
         for i = 1:n
-            pitch(1,i) =-atan(vector_spine(3,i)/vector_spine(1,i));
+            body_pitch(1,i) =-atan(vector_spine(3,i)/vector_spine(1,i));
         end
-%         pitch_deg = rad2deg(pitch);
+%         pitch_deg = rad2deg(body_pitch);
         for i = 1:n
             %另外两个角度都是0，旋转矩阵是I，3*3
-            R_W_B = ry(pitch(i));
+            R_W_B = ry(body_pitch(i));
             left_hand_bB(:,i) = R_W_B'*( left_hand(:,i) - CoM(:,i) );
             right_hand_bB(:,i) = R_W_B'*( right_hand(:,i) - CoM(:,i) );
             left_foot_bB(:,i) = R_W_B'*( left_foot(:,i) - CoM(:,i) );
@@ -64,7 +64,7 @@ function [FOOT_wB,FOOT_wH,FOOT_bB,FOOT_bH,t,pitch,CoM,CoM_dot] = data_process(ra
         end
         FOOT_bB = [left_hand_bB' right_hand_bB' left_foot_bB' right_foot_bB'];
         for i = 1:n
-            R_W_B = ry(pitch(i));
+            R_W_B = ry(body_pitch(i));
             left_hand_bH(:,i) = R_W_B'*( left_hand(:,i) - left_shoulder(:,i));
             right_hand_bH(:,i) = R_W_B'*( right_hand(:,i) - right_shoulder(:,i));
             left_foot_bH(:,i) = R_W_B'*( left_foot(:,i) - left_hip(:,i) );
